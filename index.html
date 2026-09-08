@@ -1,0 +1,1239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IntegoTech — Digital Transformation, Custom Systems &amp; Cloud Infrastructure</title>
+<meta name="description" content="IntegoTech is a digital transformation consultancy building the websites, custom management systems and cloud infrastructure that organisations run on. Schools, growing businesses and enterprises — delivered on site or entirely remotely.">
+<!--
+=============================================================================
+  IntegoTech — single-page website
+  Search these tags to edit:
+    EDIT: COLOURS   EDIT: MOTTO   EDIT: BRAND   EDIT: CONTACT
+    EDIT: PACKAGES  EDIT: PARTNERS   EDIT: PROFILE
+=============================================================================
+-->
+<style>
+/* ===================== EDIT: COLOURS =====================
+   Mixed palette: deep navy hero + dark accent bands,
+   alternating with light, mint and cream sections.
+   Each service card carries its own accent hue.
+   ========================================================= */
+:root{
+  --navy:#0B2439;
+  --navy-deep:#061621;
+  --teal:#12A583;
+  --teal-bright:#2ED3A7;
+  --green:#2E9E63;
+  --gold:#E89A44;
+  --gold-deep:#C97C25;
+  --sky:#2F8FBF;
+  --violet:#7A5AC9;
+  --coral:#E4674F;
+  --ink:#0E2436;
+  --body:#4E6579;
+  --body-dim:#7B93A6;
+  --line:#DDE7EF;
+  --bg:#FFFFFF;
+  --bg-soft:#F4F9FB;
+  --bg-mint:#EAF7F2;
+  --bg-cream:#FEF7EC;
+  --bg-tint:#E7F2F8;
+  --radius:14px;
+  --shadow:0 2px 4px rgba(11,36,57,.04),0 12px 28px rgba(11,36,57,.09);
+  --shadow-lg:0 8px 20px rgba(11,36,57,.09),0 24px 60px rgba(11,36,57,.15);
+  --grad-motto:linear-gradient(100deg,#0B2439 0%,#12A583 26%,#2E9E63 48%,#E89A44 72%,#12A583 92%);
+  --grad-motto-dark:linear-gradient(100deg,#FFFFFF 0%,#2ED3A7 22%,#8FCF8A 46%,#E8C07A 68%,#2ED3A7 88%);
+  --max:1180px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:78px}
+body{
+  font-family:'Segoe UI',system-ui,-apple-system,'Helvetica Neue',Arial,sans-serif;
+  color:var(--body);background:var(--bg);line-height:1.65;
+  font-size:16.5px;-webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+h1,h2,h3,h4{color:var(--ink);line-height:1.2;font-weight:700;letter-spacing:-.02em}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 26px}
+/* ---------- NAV ---------- */
+header{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  background:rgba(8,25,41,.55);backdrop-filter:blur(14px);
+  border-bottom:1px solid transparent;transition:.3s;
+}
+header.stuck{background:rgba(255,255,255,.94);border-bottom-color:var(--line);box-shadow:0 4px 24px rgba(11,36,57,.08)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:74px}
+.brand{display:flex;align-items:center;gap:11px;font-weight:800;font-size:1.16rem;color:#fff;letter-spacing:-.03em;transition:.3s}
+header.stuck .brand{color:var(--navy)}
+.brand-mark{
+  width:38px;height:38px;border-radius:10px;flex:none;
+  background:linear-gradient(135deg,var(--teal-bright),var(--teal) 55%,#0E7C64);
+  display:grid;place-items:center;color:#04202a;font-weight:800;font-size:1rem;letter-spacing:-.04em;
+  box-shadow:0 4px 14px rgba(18,165,131,.35);
+}
+.brand small{display:block;font-size:.6rem;font-weight:600;color:var(--teal-bright);letter-spacing:.14em;text-transform:uppercase;margin-top:-3px}
+header.stuck .brand small{color:var(--teal)}
+.menu{display:flex;align-items:center;gap:6px;list-style:none}
+.menu a{
+  padding:9px 14px;border-radius:9px;font-size:.9rem;font-weight:600;color:rgba(255,255,255,.82);
+  transition:.2s;display:block;
+}
+header.stuck .menu a{color:var(--body)}
+.menu a:hover{color:#fff;background:rgba(255,255,255,.12)}
+header.stuck .menu a:hover{color:var(--navy);background:var(--bg-tint)}
+.menu a.active{color:var(--teal-bright);background:rgba(46,211,167,.14)}
+header.stuck .menu a.active{color:var(--teal);background:var(--bg-mint)}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  padding:13px 26px;border-radius:100px;font-weight:700;font-size:.93rem;
+  border:none;cursor:pointer;transition:.25s;white-space:nowrap;
+}
+.btn-primary{background:linear-gradient(135deg,var(--teal-bright),var(--teal));color:#04202a;box-shadow:0 4px 16px rgba(18,165,131,.32)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(18,165,131,.42)}
+.btn-gold{background:linear-gradient(135deg,#F2A959,var(--gold-deep));color:#2A1704;box-shadow:0 4px 16px rgba(232,154,68,.38)}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(232,154,68,.5)}
+.btn-ghost{background:rgba(255,255,255,.08);color:#fff;border:1.5px solid rgba(255,255,255,.35)}
+.btn-ghost:hover{background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.6)}
+.btn-line{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.35)}
+.btn-line:hover{border-color:var(--teal-bright);color:var(--teal-bright);background:rgba(46,211,167,.1)}
+/* light-section variant of the outline button */
+.light .btn-line,section:not(.dark):not(.hero) .btn-line{background:#fff;color:var(--navy);border-color:var(--line)}
+.light .btn-line:hover,section:not(.dark):not(.hero) .btn-line:hover{border-color:var(--teal);color:var(--teal);background:var(--bg-mint)}
+.nav-cta{display:flex;gap:10px;align-items:center}
+.burger{display:none;background:none;border:none;cursor:pointer;padding:8px;flex-direction:column;gap:5px}
+.burger span{width:23px;height:2.5px;background:#fff;border-radius:2px;transition:.3s;display:block}
+header.stuck .burger span{background:var(--navy)}
+.burger.on span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+.burger.on span:nth-child(2){opacity:0}
+.burger.on span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+/* ---------- MOTTO :: EDIT: MOTTO ---------- */
+.motto{
+  font-weight:800;letter-spacing:-.02em;
+  background:var(--grad-motto);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;color:transparent;
+}
+.on-dark .motto,.hero .motto,footer .motto{background:var(--grad-motto-dark);-webkit-background-clip:text;background-clip:text}
+.motto-line{font-size:clamp(1.05rem,2.1vw,1.5rem);margin-bottom:20px}
+.motto-bar{
+  padding:30px 0;text-align:center;
+  background:linear-gradient(90deg,var(--bg-mint),#fff 35%,var(--bg-cream) 70%,var(--bg-tint));
+  border-bottom:1px solid var(--line);
+}
+.motto-bar .motto{font-size:clamp(1.1rem,2.4vw,1.75rem);display:inline-block}
+/* ---------- HERO (dark) ---------- */
+.hero{
+  padding:150px 0 96px;position:relative;overflow:hidden;color:#A9C2D4;
+  background:
+    radial-gradient(1100px 520px at 88% -12%,rgba(46,211,167,.20),transparent 62%),
+    radial-gradient(760px 420px at 4% 108%,rgba(63,169,201,.18),transparent 60%),
+    linear-gradient(160deg,#0B2439 0%,#0A2136 55%,#08192a 100%);
+}
+.hero::after{
+  content:'';position:absolute;inset:0;pointer-events:none;opacity:.6;
+  background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
+  background-size:56px 56px;
+  mask-image:radial-gradient(circle at 60% 40%,#000,transparent 72%);
+}
+.hero h1,.hero h4{color:#fff}
+.hero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1.08fr .92fr;gap:64px;align-items:center}
+.pill{
+  display:inline-flex;align-items:center;gap:9px;background:rgba(46,211,167,.12);
+  border:1px solid rgba(46,211,167,.3);padding:8px 17px;border-radius:100px;
+  font-size:.79rem;font-weight:700;color:var(--teal-bright);letter-spacing:.03em;
+  margin-bottom:22px;
+}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--teal-bright);box-shadow:0 0 0 3px rgba(46,211,167,.2);animation:pulse 2.4s infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 7px rgba(46,211,167,0)}}
+.hero h1{font-size:clamp(2.3rem,4.6vw,3.55rem);margin-bottom:22px;letter-spacing:-.035em}
+.hero h1 em{font-style:normal;color:var(--teal-bright);position:relative;white-space:nowrap}
+.hero h1 em::after{
+  content:'';position:absolute;left:0;right:0;bottom:5px;height:11px;
+  background:linear-gradient(90deg,rgba(232,154,68,.5),rgba(232,154,68,.16));z-index:-1;border-radius:3px;
+}
+.hero p.lead{font-size:1.11rem;max-width:560px;margin-bottom:32px}
+.hero p.lead strong{color:#fff}
+.hero-btns{display:flex;gap:13px;flex-wrap:wrap;margin-bottom:34px}
+.trust{display:flex;gap:26px;flex-wrap:wrap;font-size:.84rem;font-weight:600;color:#A9C2D4}
+.trust span{display:flex;align-items:center;gap:7px}
+.tick{color:var(--teal-bright);font-weight:800}
+/* hero card */
+.hero-card{
+  background:linear-gradient(165deg,rgba(255,255,255,.09),rgba(255,255,255,.04));
+  border-radius:18px;box-shadow:0 24px 60px rgba(0,0,0,.4);
+  border:1px solid rgba(255,255,255,.14);overflow:hidden;backdrop-filter:blur(8px);
+}
+.hc-top{background:linear-gradient(135deg,rgba(46,211,167,.22),rgba(63,169,201,.12));padding:22px 26px;color:#fff;border-bottom:1px solid rgba(255,255,255,.1)}
+.hc-top h4{color:#fff;font-size:1.02rem;margin-bottom:3px}
+.hc-top p{font-size:.8rem;color:#B7CEDF;margin:0}
+.hc-body{padding:8px 26px 24px}
+.hc-row{display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.07)}
+.hc-row:last-child{border-bottom:none}
+.hc-ico{
+  width:38px;height:38px;border-radius:10px;flex:none;display:grid;place-items:center;
+  background:rgba(46,211,167,.14);border:1px solid rgba(46,211,167,.2);font-size:1.05rem;
+}
+.hc-row div strong{display:block;color:#fff;font-size:.9rem;font-weight:700}
+.hc-row div span{font-size:.79rem;color:#9CB6C9}
+.hc-row .chk{margin-left:auto;color:var(--teal-bright);font-weight:800;font-size:1rem}
+.hc-foot{background:rgba(0,0,0,.24);padding:15px 26px;font-size:.8rem;text-align:center;border-top:1px solid rgba(255,255,255,.07);color:#B7CEDF}
+.hc-foot b{color:var(--teal-bright)}
+/* ---------- SECTIONS ---------- */
+section{padding:92px 0}
+.soft{background:var(--bg-soft)}
+.mint{background:linear-gradient(180deg,var(--bg-mint),#fff)}
+.cream{background:linear-gradient(180deg,var(--bg-cream),#fff)}
+.dark{
+  background:
+    radial-gradient(900px 460px at 15% 0%,rgba(46,211,167,.18),transparent 60%),
+    radial-gradient(700px 420px at 90% 100%,rgba(232,154,68,.14),transparent 60%),
+    linear-gradient(160deg,var(--navy-deep),var(--navy) 55%,#0D3A5C);
+  color:#B7CEDF;
+}
+.dark h2,.dark h3,.dark h4{color:#fff}
+.head{max-width:730px;margin:0 auto 54px;text-align:center}
+.head.left{margin-left:0;text-align:left}
+.eyebrow{
+  display:inline-block;font-size:.75rem;font-weight:800;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--teal);margin-bottom:13px;
+}
+.cream .eyebrow{color:var(--gold-deep)}
+.dark .eyebrow{color:var(--gold)}
+.head h2{font-size:clamp(1.75rem,3.1vw,2.45rem);margin-bottom:15px}
+.head p{font-size:1.04rem}
+.dark .head p strong{color:#fff}
+/* ---------- PARTNERS STRIP :: EDIT: PARTNERS ---------- */
+.partners{padding:44px 0;background:#fff;border-bottom:1px solid var(--line)}
+.partners .cap{text-align:center;font-size:.76rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--body-dim);margin-bottom:26px}
+.logo-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:16px;align-items:center}
+.logo-tile{
+  height:70px;border:1px solid var(--line);border-radius:12px;background:#fff;
+  display:grid;place-items:center;padding:12px;transition:.3s;
+  filter:grayscale(1);opacity:.62;
+}
+.logo-tile:hover{filter:grayscale(0);opacity:1;transform:translateY(-3px);box-shadow:var(--shadow);border-color:var(--teal)}
+.logo-tile span{font-weight:800;font-size:.76rem;color:var(--navy);text-align:center;line-height:1.25;letter-spacing:-.01em}
+.logo-tile img{max-height:44px;width:auto;object-fit:contain}
+/* ---------- SERVICES — each card its own accent ---------- */
+.grid{display:grid;gap:22px}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g2{grid-template-columns:repeat(2,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+.card{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  padding:30px 26px;transition:.3s;position:relative;overflow:hidden;
+  --accent:var(--teal);--accent-soft:rgba(18,165,131,.1);
+}
+.card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:4px;
+  background:var(--accent);
+  transform:scaleX(0);transform-origin:left;transition:.35s;
+}
+.card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);border-color:var(--accent)}
+.card:hover::before{transform:scaleX(1)}
+.card .ico{background:var(--accent-soft);border-color:transparent}
+.card ul li::before{color:var(--accent)}
+.a-teal  {--accent:#12A583;--accent-soft:rgba(18,165,131,.12)}
+.a-sky   {--accent:#2F8FBF;--accent-soft:rgba(47,143,191,.12)}
+.a-violet{--accent:#7A5AC9;--accent-soft:rgba(122,90,201,.12)}
+.a-green {--accent:#2E9E63;--accent-soft:rgba(46,158,99,.12)}
+.a-coral {--accent:#E4674F;--accent-soft:rgba(228,103,79,.12)}
+.a-gold  {--accent:#D98B2B;--accent-soft:rgba(232,154,68,.16)}
+.ico{
+  width:50px;height:50px;border-radius:13px;display:grid;place-items:center;
+  font-size:1.4rem;margin-bottom:17px;
+  background:var(--bg-tint);border:1px solid var(--line);
+}
+.card h3{font-size:1.08rem;margin-bottom:9px}
+.card p{font-size:.92rem}
+.card ul{list-style:none;margin-top:14px}
+.card ul li{font-size:.86rem;padding:5px 0 5px 21px;position:relative;color:var(--body)}
+.card ul li::before{content:'▸';position:absolute;left:0;font-weight:800}
+/* ---------- JOURNEY 0→100 ---------- */
+.track{position:relative;margin-top:20px}
+.track::before{
+  content:'';position:absolute;left:31px;top:24px;bottom:24px;width:2px;
+  background:linear-gradient(180deg,var(--gold),var(--coral),var(--violet),var(--sky),var(--teal),var(--green));
+}
+.step{display:grid;grid-template-columns:64px 1fr;gap:26px;margin-bottom:26px;position:relative}
+.step-n{
+  width:64px;height:64px;border-radius:16px;display:grid;place-items:center;
+  background:#fff;border:2px solid var(--line);font-weight:800;font-size:1.15rem;color:var(--navy);
+  position:relative;z-index:2;box-shadow:var(--shadow);
+}
+.step:nth-child(1) .step-n{border-color:var(--gold);color:var(--gold-deep);background:var(--bg-cream)}
+.step:nth-child(2) .step-n{border-color:var(--coral);color:var(--coral);background:#FDF0ED}
+.step:nth-child(3) .step-n{border-color:var(--sky);color:var(--sky);background:#EDF6FB}
+.step:nth-child(4) .step-n{border-color:var(--teal);color:var(--teal);background:var(--bg-mint)}
+.step:nth-child(5) .step-n{border-color:var(--violet);color:var(--violet);background:#F2EEFB}
+.step-body{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  padding:24px 26px;transition:.3s;
+}
+.step-body:hover{box-shadow:var(--shadow-lg);transform:translateX(5px);border-color:var(--teal)}
+.step-body h4{font-size:1.05rem;margin-bottom:7px}
+.step-body p{font-size:.92rem;margin-bottom:10px}
+.tags{display:flex;flex-wrap:wrap;gap:7px}
+.tag{
+  font-size:.72rem;font-weight:700;padding:4px 11px;border-radius:100px;
+  background:var(--bg-mint);color:var(--teal);border:1px solid rgba(18,165,131,.22);
+}
+/* two-track */
+.tracks{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:44px}
+.track-card{border-radius:var(--radius);padding:30px;border:1px solid var(--line);background:#fff}
+.track-card.a{background:linear-gradient(160deg,#FFF3E2,#fff);border-color:rgba(232,154,68,.45)}
+.track-card.b{background:linear-gradient(160deg,#E4F6EE,#fff);border-color:rgba(18,165,131,.4)}
+.track-card h3{font-size:1.14rem;margin-bottom:6px}
+.track-card .sub{font-size:.8rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;margin-bottom:15px}
+.track-card.a .sub{color:var(--gold-deep)}
+.track-card.b .sub{color:var(--teal)}
+.track-card ul{list-style:none;margin-top:14px}
+.track-card li{font-size:.9rem;padding:7px 0 7px 25px;position:relative;border-bottom:1px dashed var(--line)}
+.track-card li:last-child{border-bottom:none}
+.track-card li::before{content:'✓';position:absolute;left:0;font-weight:800}
+.track-card.a li::before{color:var(--gold-deep)}
+.track-card.b li::before{color:var(--teal)}
+/* ---------- PACKAGES :: EDIT: PACKAGES ---------- */
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:start}
+.plan{
+  background:#fff;border:1.5px solid var(--line);border-radius:16px;
+  padding:32px 28px;transition:.3s;position:relative;overflow:hidden;
+}
+.plan::after{content:'';position:absolute;top:0;left:0;right:0;height:5px;background:var(--sky)}
+.plan:nth-child(1)::after{background:linear-gradient(90deg,var(--sky),#6FC3E0)}
+.plan:nth-child(2)::after{background:linear-gradient(90deg,var(--teal),var(--green))}
+.plan:nth-child(3)::after{background:linear-gradient(90deg,var(--violet),var(--coral))}
+.plan:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
+.plan.feat{border-color:var(--teal);box-shadow:var(--shadow-lg);transform:scale(1.03);background:linear-gradient(180deg,#F0FBF6,#fff 40%)}
+.plan.feat:hover{transform:scale(1.03) translateY(-6px)}
+.flag{
+  position:absolute;top:-13px;left:50%;transform:translateX(-50%);
+  background:linear-gradient(135deg,var(--teal-bright),var(--teal));color:#04202a;font-size:.68rem;font-weight:800;
+  padding:6px 16px;border-radius:100px;letter-spacing:.11em;text-transform:uppercase;white-space:nowrap;z-index:2;
+}
+.plan h3{font-size:1.14rem;margin-bottom:4px}
+.plan .who{font-size:.82rem;color:var(--teal);font-weight:700;margin-bottom:18px}
+.plan:nth-child(1) .who{color:var(--sky)}
+.plan:nth-child(3) .who{color:var(--violet)}
+/* support pattern block replaces the old price block */
+.support{display:flex;flex-direction:column;gap:8px;margin-bottom:6px}
+.support .sline{display:flex;align-items:flex-start;gap:9px;font-size:.9rem;color:var(--ink);font-weight:600}
+.support .sline i{font-style:normal;flex:none;font-size:1rem;line-height:1.35}
+.plan .note{font-size:.78rem;color:var(--body-dim);margin-top:14px;margin-bottom:22px;padding-bottom:20px;border-bottom:1px solid var(--line)}
+.plan ul{list-style:none;margin-bottom:24px}
+.plan li{font-size:.88rem;padding:7px 0 7px 24px;position:relative}
+.plan li::before{content:'✓';position:absolute;left:0;color:var(--green);font-weight:800}
+.plan li.off{color:#AFC0CD}
+.plan li.off::before{content:'—';color:#C7D4DE}
+.plan .btn{width:100%}
+.price-foot{
+  margin-top:30px;text-align:center;font-size:.87rem;
+  background:linear-gradient(90deg,var(--bg-mint),var(--bg-cream));
+  border:1px dashed rgba(18,165,131,.4);
+  border-radius:12px;padding:18px 24px;color:var(--body);
+}
+.price-foot b{color:var(--teal)}
+/* ---------- STATS :: EDIT: STATS ---------- */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.stat{text-align:center;padding:26px 18px;border-radius:var(--radius);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14)}
+.stat .n{font-size:2.15rem;font-weight:800;letter-spacing:-.04em;line-height:1;color:#fff}
+.stat:nth-child(1) .n{color:var(--teal-bright)}
+.stat:nth-child(2) .n{color:#6FC3E0}
+.stat:nth-child(3) .n{color:#B79BF0}
+.stat:nth-child(4) .n{color:#F2B872}
+.stat .n span{color:var(--gold)}
+.stat .l{font-size:.83rem;margin-top:8px;color:#A9C4D8}
+/* ---------- PROFILE / CV :: EDIT: PROFILE ---------- */
+.profile{display:grid;grid-template-columns:.85fr 1.15fr;gap:48px;align-items:start}
+.pcard{
+  background:#fff;border:1px solid var(--line);border-radius:16px;
+  padding:32px 28px;box-shadow:var(--shadow);position:sticky;top:100px;
+  border-top:5px solid var(--teal);
+}
+.avatar{
+  width:94px;height:94px;border-radius:22px;margin-bottom:20px;
+  background:linear-gradient(135deg,var(--navy),var(--teal) 55%,var(--green));
+  display:grid;place-items:center;color:#fff;font-size:1.9rem;font-weight:800;letter-spacing:-.05em;
+  box-shadow:0 8px 24px rgba(18,165,131,.32);
+}
+.pcard h3{font-size:1.22rem;margin-bottom:3px}
+.pcard .role{font-size:.9rem;color:var(--teal);font-weight:700;margin-bottom:4px}
+.pcard .loc{font-size:.83rem;color:var(--body-dim);margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid var(--line)}
+.fact{display:flex;gap:12px;padding:9px 0;font-size:.87rem;align-items:flex-start}
+.fact b{color:var(--ink);font-weight:700;min-width:78px;flex:none;font-size:.83rem}
+.langs{display:flex;gap:7px;flex-wrap:wrap;margin-top:18px;padding-top:18px;border-top:1px solid var(--line)}
+.lang{font-size:.75rem;font-weight:700;padding:5px 12px;border-radius:100px;background:var(--bg-mint);color:var(--teal)}
+.lang:nth-child(2){background:#EDF6FB;color:var(--sky)}
+.lang:nth-child(3){background:var(--bg-cream);color:var(--gold-deep)}
+.exp{position:relative;padding-left:26px;margin-bottom:26px}
+.exp::before{content:'';position:absolute;left:0;top:8px;width:10px;height:10px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 4px rgba(18,165,131,.16)}
+.exp:nth-child(2)::before{background:var(--sky);box-shadow:0 0 0 4px rgba(47,143,191,.16)}
+.exp:nth-child(3)::before{background:var(--violet);box-shadow:0 0 0 4px rgba(122,90,201,.16)}
+.exp::after{content:'';position:absolute;left:4.5px;top:22px;bottom:-26px;width:1.5px;background:var(--line)}
+.exp:last-child::after{display:none}
+.exp .when{font-size:.75rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:4px}
+.exp h4{font-size:1.02rem;margin-bottom:2px}
+.exp .org{font-size:.86rem;color:var(--teal);font-weight:600;margin-bottom:8px}
+.exp p{font-size:.9rem}
+.skillbox{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px 26px;margin-top:12px;border-left:4px solid var(--teal)}
+.skillbox:nth-of-type(2){border-left-color:var(--sky)}
+.skillbox:nth-of-type(3){border-left-color:var(--violet)}
+.skillbox h4{font-size:.82rem;letter-spacing:.13em;text-transform:uppercase;color:var(--teal);margin-bottom:14px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{
+  font-size:.8rem;font-weight:600;padding:7px 14px;border-radius:9px;
+  background:var(--bg-soft);border:1px solid var(--line);color:var(--ink);transition:.25s;
+}
+.chip:hover{background:var(--teal);color:#fff;border-color:var(--teal);transform:translateY(-2px)}
+/* ---------- WHY ---------- */
+.why{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.why-card{padding:28px 24px;border-radius:var(--radius);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);transition:.3s}
+.why-card:hover{background:rgba(255,255,255,.12);transform:translateY(-5px)}
+.why-card:nth-child(1){border-top:3px solid var(--gold)}
+.why-card:nth-child(2){border-top:3px solid var(--sky)}
+.why-card:nth-child(3){border-top:3px solid var(--teal-bright)}
+.why-card .ico{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.18)}
+.why-card h3{font-size:1.05rem;margin-bottom:8px}
+.why-card p{font-size:.91rem;color:#B7CEDF}
+/* ---------- FAQ ---------- */
+.faq{max-width:820px;margin:0 auto}
+.q{background:#fff;border:1px solid var(--line);border-radius:12px;margin-bottom:12px;overflow:hidden;transition:.25s;border-left:4px solid var(--line)}
+.q:nth-child(1){border-left-color:var(--teal)}
+.q:nth-child(2){border-left-color:var(--sky)}
+.q:nth-child(3){border-left-color:var(--violet)}
+.q:nth-child(4){border-left-color:var(--green)}
+.q:nth-child(5){border-left-color:var(--gold)}
+.q:nth-child(6){border-left-color:var(--coral)}
+.q[open]{box-shadow:var(--shadow)}
+.q summary{
+  padding:19px 24px;font-weight:700;color:var(--ink);cursor:pointer;
+  list-style:none;display:flex;justify-content:space-between;gap:16px;align-items:center;font-size:.97rem;
+}
+.q summary::-webkit-details-marker{display:none}
+.q summary::after{content:'+';font-size:1.5rem;color:var(--teal);font-weight:400;flex:none;transition:.25s}
+.q[open] summary::after{transform:rotate(45deg)}
+.q p{padding:0 24px 21px;font-size:.93rem}
+/* ---------- CONTACT :: EDIT: CONTACT ---------- */
+.contact{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;align-items:start}
+.cinfo a.crow{
+  display:flex;gap:15px;align-items:center;padding:16px 20px;border-radius:12px;
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);
+  margin-bottom:12px;transition:.25s;border-left:3px solid transparent;
+}
+.cinfo a.crow:nth-of-type(1){border-left-color:var(--teal-bright)}
+.cinfo a.crow:nth-of-type(2){border-left-color:#6FC3E0}
+.cinfo a.crow:nth-of-type(3){border-left-color:#5FD08A}
+.cinfo a.crow:nth-of-type(4){border-left-color:var(--gold)}
+.cinfo a.crow:hover{background:rgba(255,255,255,.13);transform:translateX(5px)}
+.crow .ico{margin:0;background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.18);width:44px;height:44px;font-size:1.2rem}
+.crow strong{display:block;color:#fff;font-size:.93rem}
+.crow span{font-size:.82rem;color:#A9C4D8}
+form{background:#fff;border-radius:16px;padding:32px;box-shadow:var(--shadow-lg);border-top:5px solid var(--gold)}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.field{margin-bottom:15px}
+label{display:block;font-size:.82rem;font-weight:700;color:var(--ink);margin-bottom:6px}
+input,select,textarea{
+  width:100%;padding:12px 15px;border:1.5px solid var(--line);border-radius:9px;
+  font-family:inherit;font-size:.92rem;color:var(--ink);background:var(--bg-soft);transition:.2s;
+}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--teal);background:#fff;box-shadow:0 0 0 3px rgba(18,165,131,.12)}
+textarea{resize:vertical;min-height:96px}
+.ok{
+  display:none;background:#E4F6EE;border:1px solid var(--teal);color:#0C6B55;
+  padding:14px 18px;border-radius:10px;font-size:.9rem;font-weight:600;margin-bottom:16px;
+}
+/* ---------- FOOTER ---------- */
+footer{background:var(--navy-deep);color:#8FAEC6;padding:56px 0 26px;font-size:.88rem}
+.fgrid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:40px;margin-bottom:38px}
+footer h5{color:#fff;font-size:.8rem;letter-spacing:.13em;text-transform:uppercase;margin-bottom:15px}
+footer ul{list-style:none}
+footer li{margin-bottom:9px}
+footer a:hover{color:var(--teal-bright)}
+.fbrand{display:flex;align-items:center;gap:11px;color:#fff;font-weight:800;font-size:1.1rem;margin-bottom:14px}
+.fmotto{font-size:.85rem;margin-bottom:14px}
+.fbot{border-top:1px solid rgba(255,255,255,.1);padding-top:22px;display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;font-size:.81rem}
+/* ---------- FLOAT ---------- */
+.float{
+  position:fixed;bottom:24px;right:24px;z-index:900;
+  width:56px;height:56px;border-radius:50%;background:#25D366;color:#fff;
+  display:grid;place-items:center;font-size:1.5rem;
+  box-shadow:0 8px 24px rgba(37,211,102,.42);transition:.3s;
+}
+.float:hover{transform:scale(1.1) translateY(-3px)}
+/* ---------- REVEAL ---------- */
+.rv{opacity:0;transform:translateY(26px);transition:.7s cubic-bezier(.16,1,.3,1)}
+.rv.in{opacity:1;transform:none}
+/* ---------- RESPONSIVE ---------- */
+@media(max-width:1000px){
+  .hero .wrap,.profile,.contact{grid-template-columns:1fr;gap:44px}
+  .pcard{position:static}
+  .g3,.g4,.plans,.stats,.why,.tracks{grid-template-columns:repeat(2,1fr)}
+  .plan.feat{transform:none}
+  .plan.feat:hover{transform:translateY(-6px)}
+  .logo-grid{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:760px){
+  html{scroll-padding-top:70px}
+  .menu{
+    position:fixed;top:74px;left:0;right:0;background:#fff;flex-direction:column;
+    padding:14px;gap:2px;border-bottom:1px solid var(--line);box-shadow:var(--shadow-lg);
+    display:none;
+  }
+  .menu.open{display:flex}
+  .menu a{width:100%;padding:12px 14px;color:var(--body)}
+  .burger{display:flex}
+  .nav-cta .btn{display:none}
+  section{padding:64px 0}
+  .g3,.g4,.g2,.plans,.stats,.why,.tracks,.frow,.fgrid{grid-template-columns:1fr}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .logo-grid{grid-template-columns:repeat(2,1fr)}
+  .hero{padding:118px 0 68px}
+  .step{grid-template-columns:48px 1fr;gap:16px}
+  .step-n{width:48px;height:48px;font-size:.98rem;border-radius:13px}
+  .track::before{left:23px}
+  .float{width:50px;height:50px;bottom:18px;right:18px}
+}
+
+/* ---------- PILLAR CARDS (new) ---------- */
+.pillar{padding-top:34px}
+.pnum{
+  position:absolute;top:16px;right:20px;font-size:2.6rem;font-weight:800;
+  line-height:1;letter-spacing:-.05em;color:var(--accent);opacity:.16;
+}
+.pillar .tagline{
+  font-size:.86rem;font-weight:700;color:var(--accent);
+  margin-bottom:14px;letter-spacing:-.01em;
+}
+.pillar .pitch{
+  margin-top:18px;padding-top:16px;border-top:1px solid var(--line);
+  font-size:.88rem;color:var(--body);font-style:italic;
+}
+/* ---------- PROBLEM CARDS (new) ---------- */
+.problem-card{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  padding:28px 26px;transition:.3s;border-top:4px solid var(--coral);
+}
+.problem-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg)}
+.problem-card:nth-child(2){border-top-color:var(--gold)}
+.problem-card:nth-child(3){border-top-color:var(--violet)}
+.problem-card h4{font-size:1.05rem;margin-bottom:9px}
+.problem-card p{font-size:.9rem}
+.pico{font-size:1.7rem;margin-bottom:12px;line-height:1}
+/* ---------- OUTCOME CARDS (new) ---------- */
+.out-card{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  padding:24px 22px;transition:.3s;border-left:4px solid var(--teal);
+}
+.out-card:nth-child(2){border-left-color:var(--sky)}
+.out-card:nth-child(3){border-left-color:var(--green)}
+.out-card:nth-child(4){border-left-color:var(--gold)}
+.out-card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.out-card h4{font-size:.98rem;margin-bottom:7px}
+.out-card p{font-size:.86rem}
+/* ---------- 4-up trust cards on dark ---------- */
+.dark .g4 .why-card:nth-child(1){border-top:3px solid var(--teal-bright)}
+.dark .g4 .why-card:nth-child(2){border-top:3px solid #6FC3E0}
+.dark .g4 .why-card:nth-child(3){border-top:3px solid #B79BF0}
+.dark .g4 .why-card:nth-child(4){border-top:3px solid var(--gold)}
+.dark .g4 .why-card h3{font-size:1rem}
+</style>
+</head>
+<body>
+<!-- ============ NAV ============ -->
+<header id="hdr">
+  <div class="wrap nav">
+    <!-- EDIT: BRAND -->
+    <a href="#top" class="brand">
+      <span class="brand-mark">IT</span>
+      <span>IntegoTech<small>Digital Transformation</small></span>
+    </a>
+    <ul class="menu" id="menu">
+      <li><a href="#pillars">Solutions</a></li>
+      <li><a href="#modernise">Schools &amp; SMEs</a></li>
+      <li><a href="#global">Global Delivery</a></li>
+      <li><a href="#method">How We Work</a></li>
+      <li><a href="#profile">About</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="#contact" class="btn btn-primary">Book a Strategy Consultation</a>
+      <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <span class="pill"><span class="dot"></span> Digital Transformation · Custom Systems · Cloud Infrastructure</span>
+      <h1>We build the systems <em>organisations run on</em>.</h1>
+      <p class="lead">
+        IntegoTech designs the websites, custom management platforms and cloud
+        infrastructure that take institutions from manual and invisible to
+        connected, secure and discoverable. Schools, growing businesses and
+        enterprises — <strong>delivered on site or entirely remotely</strong>.
+      </p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn btn-gold">Book a Strategy Consultation →</a>
+        <a href="#pillars" class="btn btn-line">View Digital Solutions</a>
+      </div>
+      <div class="trust">
+        <span><i class="tick">✓</i> Microsoft-certified engineering</span>
+        <span><i class="tick">✓</i> Remote-first delivery</span>
+        <span><i class="tick">✓</i> Security-first architecture</span>
+      </div>
+    </div>
+    <div class="hero-card rv">
+      <div class="hc-top">
+        <h4>What we set up for you</h4>
+        <p>One partner across presence, operations and infrastructure.</p>
+      </div>
+      <div class="hc-body">
+        <div class="hc-row"><div class="hc-ico">🌐</div><div><strong>Websites &amp; web platforms</strong><span>Design, build, domain, hosting, visibility</span></div><i class="chk">✓</i></div>
+        <div class="hc-row"><div class="hc-ico">🏫</div><div><strong>School management systems</strong><span>Admissions, marks, fees, parent portals</span></div><i class="chk">✓</i></div>
+        <div class="hc-row"><div class="hc-ico">🎫</div><div><strong>Ticketing &amp; workflow tools</strong><span>Helpdesk, tracking, reporting dashboards</span></div><i class="chk">✓</i></div>
+        <div class="hc-row"><div class="hc-ico">☁️</div><div><strong>Cloud &amp; identity infrastructure</strong><span>Microsoft 365, Workspace, Entra ID, security</span></div><i class="chk">✓</i></div>
+        <div class="hc-row"><div class="hc-ico">🛡️</div><div><strong>Ongoing advisory &amp; support</strong><span>Roadmaps, governance, managed partnership</span></div><i class="chk">✓</i></div>
+      </div>
+      <div class="hc-foot"><b>Every engagement opens with a free technology audit</b> — the report is yours to keep</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MOTTO BAR :: EDIT: MOTTO ============ -->
+<div class="motto-bar">
+  <div class="wrap">
+    <span class="motto">Smart Systems · Reliable Cloud · Real Global Reach</span>
+  </div>
+</div>
+
+<!-- ============ PARTNERS :: EDIT: PARTNERS ============ -->
+<!--
+  To use a real logo file, replace:   <span>Client Name</span>
+  with:                               <img src="logos/client.png" alt="Client Name">
+-->
+<div class="partners">
+  <div class="wrap">
+    <p class="cap">Trusted by schools, clinics and growing businesses</p>
+    <div class="logo-grid">
+      <div class="logo-tile"><span>CLIENT<br>LOGO 1</span></div>
+      <div class="logo-tile"><span>CLIENT<br>LOGO 2</span></div>
+      <div class="logo-tile"><span>CLIENT<br>LOGO 3</span></div>
+      <div class="logo-tile"><span>CLIENT<br>LOGO 4</span></div>
+      <div class="logo-tile"><span>CLIENT<br>LOGO 5</span></div>
+      <div class="logo-tile"><span>YOUR LOGO<br>HERE</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ THE THREE PILLARS ============ -->
+<section id="pillars">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="eyebrow">What We Do</span>
+      <h2>Three practices. One partner.</h2>
+      <p>Most organisations buy technology in fragments — a website here, a system there, cloud somewhere else, and nothing that talks to anything. We deliver all three as one coherent architecture.</p>
+    </div>
+    <div class="grid g3">
+      <div class="card rv a-sky pillar">
+        <div class="pnum">01</div>
+        <div class="ico">🌐</div>
+        <h3>Digital Visibility &amp; Platforms</h3>
+        <p class="tagline">Be found. Be credible. Be online properly.</p>
+        <ul>
+          <li>Custom website design &amp; build</li>
+          <li>Web applications &amp; client portals</li>
+          <li>Domain registration &amp; management</li>
+          <li>Hosting, SSL &amp; DNS architecture</li>
+          <li>Search visibility &amp; Google Business Profile</li>
+          <li>Brand &amp; digital identity</li>
+          <li>Multilingual, international-facing presentation</li>
+        </ul>
+        <p class="pitch">Your website is the first thing a parent, client or partner judges you by. We build ones that hold up — fast, secure, professionally written, and owned outright by you.</p>
+      </div>
+      <div class="card rv a-teal pillar">
+        <div class="pnum">02</div>
+        <div class="ico">⚙️</div>
+        <h3>Custom Operations &amp; Management Systems</h3>
+        <p class="tagline">Software built for how you actually work.</p>
+        <ul>
+          <li>School management — admissions, marks, fees, parent portals</li>
+          <li>Booking &amp; reservation platforms</li>
+          <li>Ticketing &amp; helpdesk systems</li>
+          <li>Inventory &amp; unit tracking</li>
+          <li>Lightweight ERP &amp; workflow automation</li>
+          <li>Reporting &amp; management dashboards</li>
+          <li>Role-based access &amp; audit trails</li>
+        </ul>
+        <p class="pitch">Off-the-shelf software forces you to change how you work. We build to your process instead — then automate the parts that were eating your staff's week.</p>
+      </div>
+      <div class="card rv a-violet pillar">
+        <div class="pnum">03</div>
+        <div class="ico">☁️</div>
+        <h3>Cloud Infrastructure &amp; Strategic IT</h3>
+        <p class="tagline">The foundation everything else depends on.</p>
+        <ul>
+          <li>Microsoft 365 &amp; Google Workspace migration</li>
+          <li>Microsoft Entra ID &amp; hybrid identity</li>
+          <li>Directory synchronisation &amp; conditional access</li>
+          <li>Modern workplace security, MFA &amp; governance</li>
+          <li>Network, server &amp; backup architecture</li>
+          <li>Managed support partnerships</li>
+          <li>Technology roadmapping &amp; advisory</li>
+        </ul>
+        <p class="pitch">This is the work our engineers do every day for organisations across the world through Microsoft's support channels. The same standard, applied directly to you.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SCHOOLS & SME SPOTLIGHT ============ -->
+<section class="mint" id="modernise">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="eyebrow">Schools &amp; Growing Businesses</span>
+      <h2>From paper to platform</h2>
+      <p>If your organisation still runs on ledgers, exercise books and a website nobody has touched in years, this section is written for you.</p>
+    </div>
+
+    <div class="grid g3 rv" style="margin-bottom:56px">
+      <div class="problem-card">
+        <div class="pico">🔍</div>
+        <h4>Invisible online</h4>
+        <p>Parents search for your school and find nothing — or worse, find a page that hasn't been updated since 2019. Meanwhile the school down the road looks like an international institution.</p>
+      </div>
+      <div class="problem-card">
+        <div class="pico">📒</div>
+        <h4>Running on paper</h4>
+        <p>Admissions in ledgers. Marks in exercise books. Fees in a cash book. One flood, one fire, one lost file and years of records are gone — and nobody can produce a report when the board asks for one.</p>
+      </div>
+      <div class="problem-card">
+        <div class="pico">🔀</div>
+        <h4>Disconnected work</h4>
+        <p>The bursar's spreadsheet doesn't match the registrar's list, which doesn't match what the head teacher was told. Everyone re-enters the same information into different files.</p>
+      </div>
+    </div>
+
+    <div class="head left rv" style="margin-bottom:26px">
+      <h2 style="font-size:1.55rem">The IntegoTech solution — the 0 → 100 Programme</h2>
+      <p style="font-size:.98rem;margin-top:10px">Every organisation we meet is at a different stage. So we run two tracks — and we tell you honestly which one you're on after the free audit.</p>
+    </div>
+
+    <div class="tracks rv">
+      <div class="track-card a">
+        <div class="sub">Track A — Starting at Zero</div>
+        <h3>Build the foundation</h3>
+        <p style="font-size:.93rem;margin-top:8px">For organisations with no email system, no website, no management software and no backups. We put the essentials in place in a fixed 90-day programme.</p>
+        <ul>
+          <li>Domain name secured in your own name</li>
+          <li>Official staff email on Google Workspace or Microsoft 365</li>
+          <li>Professional website, live and indexed</li>
+          <li>Management system built to your process</li>
+          <li>Network configured; backups running and tested</li>
+          <li>Staff trained; policy and systems documented</li>
+        </ul>
+      </div>
+      <div class="track-card b">
+        <div class="sub">Track B — Already Running</div>
+        <h3>Optimise, secure &amp; scale</h3>
+        <p style="font-size:.93rem;margin-top:8px">For organisations that already have systems but suspect they're underusing them, overpaying, or exposed. We audit, fix and advance.</p>
+        <ul>
+          <li>Full audit of licences, spend and duplication</li>
+          <li>Security hardening &amp; access rights clean-up</li>
+          <li>Backup verification — most fail this</li>
+          <li>Integration of disconnected systems and data</li>
+          <li>Website performance &amp; international visibility</li>
+          <li>3-year technology roadmap for the board</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="grid g4 rv" style="margin-top:44px">
+      <div class="out-card"><div class="pico">🌍</div><h4>A website that earns trust</h4><p>Professional, fast, found on Google — and owned by you.</p></div>
+      <div class="out-card"><div class="pico">🏫</div><h4>A system built to your process</h4><p>Admissions through to report cards, in one connected flow.</p></div>
+      <div class="out-card"><div class="pico">✉️</div><h4>Official email &amp; cloud identity</h4><p>Every staff member on your own domain, secured properly.</p></div>
+      <div class="out-card"><div class="pico">🔐</div><h4>Backups, security &amp; documentation</h4><p>So nothing depends on one person's memory.</p></div>
+    </div>
+
+    <div class="price-foot rv">
+      <b>Every engagement opens with a free audit.</b> We visit, review every system, and give you a written report of what exists, what's at risk and what to fix first — and you keep that report whether or not you engage us.
+    </div>
+  </div>
+</section>
+
+<!-- ============ GLOBAL READINESS ============ -->
+<section class="dark" id="global">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="eyebrow">Global Delivery</span>
+      <h2>Built to work with you from anywhere</h2>
+      <p>The majority of what we deliver — cloud administration, system builds, security reviews, website delivery — requires no physical presence at all. Here is how we make remote engagement work.</p>
+    </div>
+    <div class="grid g4 rv">
+      <div class="why-card">
+        <div class="ico">🎓</div>
+        <h3>Verifiable engineering credentials</h3>
+        <p>Microsoft-certified engineering, with active enterprise identity and cloud work delivered daily through Microsoft's own support channels. Named lead consultant, full CV available on request.</p>
+      </div>
+      <div class="why-card">
+        <div class="ico">📋</div>
+        <h3>Documented delivery methodology</h3>
+        <p>A defined engagement process — Audit, Design, Build, Deploy, Support — with stated deliverables at each stage, written documentation at handover, and change control on scope. Not improvised.</p>
+      </div>
+      <div class="why-card">
+        <div class="ico">🔐</div>
+        <h3>Security-first architecture</h3>
+        <p>MFA and least-privilege access as standard. Role-based access and audit trails in every system we build. Encrypted backups with tested restores. Your domains, your credentials, your data — no lock-in.</p>
+      </div>
+      <div class="why-card">
+        <div class="ico">🌐</div>
+        <h3>Remote-first operating model</h3>
+        <p>Working window stated in UTC, collaboration through Teams and shared documentation, a four-hour response standard, and written weekly reporting throughout every engagement.</p>
+      </div>
+    </div>
+    <div class="stats rv" style="margin-top:52px">
+      <div class="stat"><div class="n">5<span>+</span></div><div class="l">Years enterprise IT experience</div></div>
+      <div class="stat"><div class="n">4<span>hr</span></div><div class="l">Response time standard</div></div>
+      <div class="stat"><div class="n">3<span></span></div><div class="l">Languages supported</div></div>
+      <div class="stat"><div class="n">100<span>%</span></div><div class="l">Systems documented &amp; handed over</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ENGAGEMENT METHOD ============ -->
+<section id="method">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="eyebrow">How We Work</span>
+      <h2>A documented method, not an improvised one</h2>
+      <p>Every engagement follows the same five stages, whether we are ten minutes away or ten time zones away.</p>
+    </div>
+    <div class="track">
+      <div class="step rv">
+        <div class="step-n">01</div>
+        <div class="step-body">
+          <h4>Audit — free, and yours to keep</h4>
+          <p>We review every system, on site or remotely, and produce a written report of what exists, what is at risk, and what needs attention first. You keep the report either way.</p>
+          <div class="tags"><span class="tag">Systems review</span><span class="tag">Written report</span><span class="tag">Risk register</span></div>
+        </div>
+      </div>
+      <div class="step rv">
+        <div class="step-n">02</div>
+        <div class="step-body">
+          <h4>Design — the architecture, agreed before we build</h4>
+          <p>Scope, system design, data model, integration points and delivery timeline, documented and signed off. You know exactly what is being built and what it will do before work starts.</p>
+          <div class="tags"><span class="tag">Solution design</span><span class="tag">Scope &amp; timeline</span><span class="tag">Change control</span></div>
+        </div>
+      </div>
+      <div class="step rv">
+        <div class="step-n">03</div>
+        <div class="step-body">
+          <h4>Build — websites, systems and infrastructure</h4>
+          <p>Development and configuration against the agreed design, with security and access control built in from the first line rather than added afterwards. Progress reported weekly in writing.</p>
+          <div class="tags"><span class="tag">Development</span><span class="tag">Security by default</span><span class="tag">Weekly reporting</span></div>
+        </div>
+      </div>
+      <div class="step rv">
+        <div class="step-n">04</div>
+        <div class="step-body">
+          <h4>Deploy — live, trained and documented</h4>
+          <p>Migration, go-live, staff training and full handover documentation. Domains registered in your name, admin credentials held by you, every system documented so nothing depends on one person.</p>
+          <div class="tags"><span class="tag">Go-live</span><span class="tag">Staff training</span><span class="tag">Full handover</span></div>
+        </div>
+      </div>
+      <div class="step rv">
+        <div class="step-n">05</div>
+        <div class="step-body">
+          <h4>Support &amp; advise — the ongoing partnership</h4>
+          <p>Scheduled reviews, remote assistance whenever you need it, security and backup verification, licence optimisation, and technology roadmapping with your leadership. This is where the long-term value sits.</p>
+          <div class="tags"><span class="tag">Managed support</span><span class="tag">Leadership review</span><span class="tag">3-year roadmap</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SUPPORT PARTNERSHIPS :: EDIT: PACKAGES ============ -->
+<section class="cream" id="partnerships">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="eyebrow">Ongoing Partnership</span>
+      <h2>Support that stays after the build</h2>
+      <p>Projects end. Organisations keep running. Our partnerships are monthly, cancellable with 30 days' notice, and include the systems documentation — which you own, permanently. Whichever level you choose, <strong>we are always available</strong>: scheduled reviews, and assistance any time you need us in between.</p>
+    </div>
+    <div class="plans rv">
+      <div class="plan">
+        <h3>Essential</h3>
+        <div class="who">Small organisations &amp; clinics · under 15 staff</div>
+        <div class="support">
+          <div class="sline"><i>📍</i><span>Scheduled on-site or remote reviews</span></div>
+          <div class="sline"><i>💻</i><span>Always available remotely when you need us</span></div>
+        </div>
+        <p class="note">We check in on an agreed schedule — and whenever something comes up in between, we are one call or message away.</p>
+        <ul>
+          <li>Microsoft 365 / Google Workspace administration</li>
+          <li>Domain &amp; email management</li>
+          <li>Remote helpdesk (business hours)</li>
+          <li>Security &amp; update management</li>
+          <li>Monthly backup verification</li>
+          <li class="off">Website &amp; platform management</li>
+          <li class="off">Custom system maintenance</li>
+          <li class="off">Leadership advisory review</li>
+        </ul>
+        <a href="#contact" class="btn btn-line">Start with Essential</a>
+      </div>
+      <div class="plan feat">
+        <span class="flag">Most organisations choose this</span>
+        <h3>Managed Partner</h3>
+        <div class="who">Schools &amp; growing businesses · 15–60 staff</div>
+        <div class="support">
+          <div class="sline"><i>📍</i><span>Regular scheduled engagement every week</span></div>
+          <div class="sline"><i>💻</i><span>Always available — priority remote assistance</span></div>
+        </div>
+        <p class="note">A familiar team engaged with you every week, and priority support any time you need us in between.</p>
+        <ul>
+          <li>Everything in Essential</li>
+          <li>Website &amp; hosting fully managed</li>
+          <li>Custom system maintenance &amp; enhancement</li>
+          <li>Network, cloud &amp; server management</li>
+          <li>Weekly automated backups + restore tests</li>
+          <li>Staff training sessions each term</li>
+          <li>Monthly written technology report</li>
+          <li class="off">Named engineer &amp; strategic roadmap</li>
+        </ul>
+        <a href="#contact" class="btn btn-primary">Book a Free Audit</a>
+      </div>
+      <div class="plan">
+        <h3>Strategic Partner</h3>
+        <div class="who">Large / international organisations · 60+ staff</div>
+        <div class="support">
+          <div class="sline"><i>📍</i><span>Frequent engagement, on site or remote, as needed</span></div>
+          <div class="sline"><i>💻</i><span>Named engineer, always available to assist</span></div>
+        </div>
+        <p class="note">A named engineer who knows your organisation by heart — engaged regularly and reachable whenever you need support.</p>
+        <ul>
+          <li>Everything in Managed Partner</li>
+          <li>Named dedicated engineer</li>
+          <li>Multi-site &amp; enterprise architecture</li>
+          <li>Identity, security &amp; compliance governance</li>
+          <li>Quarterly review with leadership</li>
+          <li>3-year technology roadmap &amp; budget planning</li>
+          <li>Licence optimisation &amp; cost review</li>
+          <li>Accreditation &amp; audit support</li>
+        </ul>
+        <a href="#contact" class="btn btn-line">Talk to Us</a>
+      </div>
+    </div>
+    <div class="price-foot rv">
+      <b>We are always available to assist — whichever partnership you choose.</b> You are never left waiting: we engage on an agreed schedule and stay reachable in between, including for urgent issues during exams, registration, reporting or trading peaks. Every partnership is tailored and quoted after the free audit, so you only pay for what your organisation actually needs.
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROFILE / CV :: EDIT: PROFILE ============ -->
+<section class="soft" id="profile">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="eyebrow">Who You're Working With</span>
+      <h2>Enterprise engineering, without the enterprise overhead</h2>
+      <p>You are not hiring an unproven startup. Our practice is led by an engineer who supports Microsoft cloud and identity infrastructure for organisations internationally — every day.</p>
+    </div>
+    <div class="profile">
+      <div class="pcard rv">
+        <div class="avatar">GL</div>
+        <h3>Gakwandi Lambert L. Udahemuka</h3>
+        <div class="role">Founder &amp; Principal Consultant</div>
+        <div class="loc">📍 Working with clients worldwide</div>
+        <div class="fact"><b>Experience</b><span>5+ years in IT support, systems &amp; cloud administration</span></div>
+        <div class="fact"><b>Current</b><span>Support Engineer — Azure &amp; Identity, Teknowledge Global</span></div>
+        <div class="fact"><b>Education</b><span>Bachelor of Information Technology, University of Kigali</span></div>
+        <div class="fact"><b>Focus</b><span>Cloud identity, custom systems &amp; digital transformation</span></div>
+        <div class="langs">
+          <span class="lang">English</span>
+          <span class="lang">Français</span>
+          <span class="lang">Kinyarwanda</span>
+        </div>
+        <a href="#contact" class="btn btn-primary" style="width:100%;margin-top:22px">Request Full CV</a>
+      </div>
+      <div>
+        <div class="exp rv">
+          <div class="when">Present</div>
+          <h4>Support Engineer — Azure &amp; Identity</h4>
+          <div class="org">Teknowledge Global Ltd (Microsoft delivery partner)</div>
+          <p>Resolving enterprise identity and cloud infrastructure cases for organisations worldwide: Microsoft Entra ID, hybrid directory synchronisation, conditional access, tenant and domain administration, Exchange Online and cross-tenant collaboration. Working to formal SLAs with documented escalation and case management.</p>
+        </div>
+        <div class="exp rv">
+          <div class="when">Previous</div>
+          <h4>IT Support &amp; Systems Administration</h4>
+          <div class="org">IPN &amp; ISON — organisational IT</div>
+          <p>Managed full IT estates end to end: hardware and asset inventory, server maintenance, network and internet uptime, access rights, antivirus and OS patching, data backup, website and domain management, and training staff on systems and software.</p>
+        </div>
+        <div class="exp rv">
+          <div class="when">Foundation</div>
+          <h4>Bachelor of Information Technology</h4>
+          <div class="org">University of Kigali</div>
+          <p>Systems administration, networking, databases and web technologies — including website development, hosting and domain management, which underpin the platform and systems work we deliver today.</p>
+        </div>
+        <div class="skillbox rv">
+          <h4>Cloud &amp; Collaboration</h4>
+          <div class="chips">
+            <span class="chip">Microsoft 365 Admin</span>
+            <span class="chip">Google Workspace Admin</span>
+            <span class="chip">Microsoft Entra ID</span>
+            <span class="chip">Exchange Online</span>
+            <span class="chip">SharePoint &amp; Teams</span>
+            <span class="chip">Hybrid Identity &amp; Sync</span>
+            <span class="chip">Conditional Access</span>
+            <span class="chip">MFA &amp; SSPR</span>
+          </div>
+        </div>
+        <div class="skillbox rv">
+          <h4>Infrastructure &amp; Networking</h4>
+          <div class="chips">
+            <span class="chip">Server Administration</span>
+            <span class="chip">DNS &amp; DHCP</span>
+            <span class="chip">TCP/IP Networking</span>
+            <span class="chip">Router &amp; AP Configuration</span>
+            <span class="chip">IP Address Management</span>
+            <span class="chip">File Services &amp; Storage</span>
+            <span class="chip">Backup &amp; Recovery</span>
+            <span class="chip">CCTV Systems</span>
+          </div>
+        </div>
+        <div class="skillbox rv">
+          <h4>Platforms, Security &amp; Delivery</h4>
+          <div class="chips">
+            <span class="chip">Website &amp; Platform Development</span>
+            <span class="chip">Custom Management Systems</span>
+            <span class="chip">Hosting &amp; SSL</span>
+            <span class="chip">Access &amp; Permission Control</span>
+            <span class="chip">ITIL-aligned Ticketing</span>
+            <span class="chip">Technical Documentation</span>
+            <span class="chip">End-user Training</span>
+            <span class="chip">HTML · Python · Java · C#</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section id="faq">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="eyebrow">Questions</span>
+      <h2>What clients usually ask us</h2>
+    </div>
+    <div class="faq">
+      <details class="q rv" open>
+        <summary>We already have someone who handles our computers. Why would we need you?</summary>
+        <p>Most organisations have someone capable who fixes machines when they break. That is repair, not technology management — and it is certainly not system building. We handle the parts that rarely get done: the website, the management platform, verified backups, security and access reviews, licence optimisation, documentation and forward planning. In many cases we work alongside your existing technician rather than replacing them — and we train them.</p>
+      </details>
+      <details class="q rv">
+        <summary>Can you really deliver this remotely, from another country?</summary>
+        <p>Yes, and most of our work already is. Cloud administration, identity and security configuration, system development, website delivery and advisory work require no physical presence. We state our working hours in UTC, collaborate through Teams and shared documentation, hold to a four-hour response standard, and report in writing every week. On-site presence is arranged where it genuinely adds value — audits, installations, staff training.</p>
+      </details>
+      <details class="q rv">
+        <summary>Is the audit genuinely free?</summary>
+        <p>Yes. We review every system and give you a written report with findings and recommendations. You keep the report whether or not you engage us. We do this because in our experience organisations underestimate their exposure — particularly around backups and access control — and the report makes the decision obvious either way.</p>
+      </details>
+      <details class="q rv">
+        <summary>Do we own our systems, or are we locked into you?</summary>
+        <p>You own everything. Domains are registered in your name, admin credentials are held by you, source code and configuration for custom systems are handed over, and every system we build is documented. Partnerships are monthly with 30 days' notice. We would rather keep clients because the service is good than because leaving is painful.</p>
+      </details>
+      <details class="q rv">
+        <summary>How do you handle our data and security?</summary>
+        <p>Security is designed in, not added afterwards. MFA and least-privilege access are standard on every build. Every system we deliver includes role-based access and audit trails. Backups are encrypted and restores are tested rather than assumed. We hold only the access required to do the work, and that access is documented and revocable by you at any time.</p>
+      </details>
+      <details class="q rv">
+        <summary>Can you help us attract more students or customers online?</summary>
+        <p>Yes — this sits across Pillars 1 and 3. A professional website, correct Google Business and Maps listing, working enquiry forms, search visibility and an active social presence measurably affect enrolment and enquiries. For organisations seeking international students, customers or partnerships, we also prepare the digital presentation that those audiences expect.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT :: EDIT: CONTACT ============ -->
+<section class="dark" id="contact">
+  <div class="wrap">
+    <div class="contact">
+      <div class="cinfo rv on-dark">
+        <span class="eyebrow">Get Started</span>
+        <h2 style="font-size:2rem;margin-bottom:14px">Book a strategy consultation</h2>
+        <p style="margin-bottom:28px">Tell us about your organisation and we'll arrange a session. The audit that follows takes about two hours, on site or remotely, and you receive the written report within five working days.</p>
+        <a href="tel:+250785654811" class="crow">
+          <span class="ico">📞</span>
+          <span><strong>+250 785 654 811</strong><span>Mon–Sat, 06:00 – 16:00 UTC</span></span>
+        </a>
+        <a href="mailto:hello@integotech.rw" class="crow">
+          <span class="ico">✉️</span>
+          <span><strong>hello@integotech.rw</strong><span>We reply within one working day</span></span>
+        </a>
+        <a href="https://wa.me/250785654811" target="_blank" rel="noopener" class="crow">
+          <span class="ico">💬</span>
+          <span><strong>WhatsApp us</strong><span>Fastest way to reach us</span></span>
+        </a>
+        <a href="#top" class="crow">
+          <span class="ico">🌍</span>
+          <span><strong>Remote delivery worldwide</strong><span>Headquartered in Kigali, Rwanda</span></span>
+        </a>
+      </div>
+      <form id="form" onsubmit="return sendIt(event)">
+        <div class="ok" id="ok">✓ Thank you — your request has been recorded. We'll be in touch within one working day.</div>
+        <div class="frow">
+          <div class="field">
+            <label for="n">Your name *</label>
+            <input id="n" required placeholder="Full name">
+          </div>
+          <div class="field">
+            <label for="r">Your role</label>
+            <input id="r" placeholder="Director, Head Teacher, Bursar…">
+          </div>
+        </div>
+        <div class="field">
+          <label for="s">Organisation *</label>
+          <input id="s" required placeholder="Name of your organisation">
+        </div>
+        <div class="frow">
+          <div class="field">
+            <label for="p">Phone *</label>
+            <input id="p" required placeholder="+250 …">
+          </div>
+          <div class="field">
+            <label for="e">Email</label>
+            <input id="e" type="email" placeholder="name@organisation.com">
+          </div>
+        </div>
+        <div class="frow">
+          <div class="field">
+            <label for="loc">Location</label>
+            <input id="loc" placeholder="City, country">
+          </div>
+          <div class="field">
+            <label for="pl">Interested in</label>
+            <select id="pl">
+              <option>Free technology audit (recommended)</option>
+              <option>Website / digital presence</option>
+              <option>Custom management system</option>
+              <option>School management system</option>
+              <option>Cloud migration &amp; identity</option>
+              <option>0 → 100 programme (starting from scratch)</option>
+              <option>Ongoing support partnership</option>
+              <option>Remote consulting engagement</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label for="m">What's the situation right now?</label>
+          <textarea id="m" placeholder="e.g. We have about 40 staff, admissions still on paper, no official email system, and our website hasn't been updated in three years."></textarea>
+        </div>
+        <button type="submit" class="btn btn-gold" style="width:100%">Book My Consultation →</button>
+        <p style="font-size:.76rem;text-align:center;margin-top:13px;color:#7B93A6">No cost, no obligation. We keep your details private.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <div class="fbrand"><span class="brand-mark">IT</span> IntegoTech</div>
+        <!-- EDIT: MOTTO -->
+        <div class="motto fmotto">Smart Systems · Reliable Cloud · Real Global Reach</div>
+        <p style="max-width:320px">A digital transformation consultancy building the websites, custom systems and cloud infrastructure that organisations run on — delivered on site or entirely remotely.</p>
+      </div>
+      <div>
+        <h5>Solutions</h5>
+        <ul>
+          <li><a href="#pillars">Websites &amp; Platforms</a></li>
+          <li><a href="#pillars">Management Systems</a></li>
+          <li><a href="#pillars">Cloud &amp; Identity</a></li>
+          <li><a href="#partnerships">Support Partnerships</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <ul>
+          <li><a href="#modernise">Schools &amp; SMEs</a></li>
+          <li><a href="#global">Global Delivery</a></li>
+          <li><a href="#method">How We Work</a></li>
+          <li><a href="#profile">About</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="tel:+250785654811">+250 785 654 811</a></li>
+          <li><a href="mailto:hello@integotech.rw">hello@integotech.rw</a></li>
+          <li><a href="https://wa.me/250785654811" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li>Mon–Sat, 06:00–16:00 UTC</li>
+        </ul>
+      </div>
+    </div>
+    <div class="fbot">
+      <span>© <span id="yr"></span> IntegoTech. All rights reserved.</span>
+      <span>Built in Kigali 🇷🇼 — serving clients worldwide</span>
+    </div>
+  </div>
+</footer>
+<a href="https://wa.me/250785654811" target="_blank" rel="noopener" class="float" aria-label="WhatsApp">💬</a>
+<script>
+/* year */
+document.getElementById('yr').textContent = new Date().getFullYear();
+/* sticky header */
+const hdr = document.getElementById('hdr');
+addEventListener('scroll', () => hdr.classList.toggle('stuck', scrollY > 20));
+/* mobile menu */
+const burger = document.getElementById('burger'), menu = document.getElementById('menu');
+burger.onclick = () => { menu.classList.toggle('open'); burger.classList.toggle('on'); };
+menu.querySelectorAll('a').forEach(a => a.onclick = () => {
+  menu.classList.remove('open'); burger.classList.remove('on');
+});
+/* active link on scroll */
+const secs = [...document.querySelectorAll('section[id]')];
+const links = [...menu.querySelectorAll('a')];
+addEventListener('scroll', () => {
+  let cur = '';
+  secs.forEach(s => { if (scrollY >= s.offsetTop - 140) cur = s.id; });
+  links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + cur));
+});
+/* reveal on scroll */
+const io = new IntersectionObserver(es => {
+  es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+}, { threshold: .12, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.rv').forEach((el, i) => {
+  el.style.transitionDelay = (i % 4) * 70 + 'ms';
+  io.observe(el);
+});
+/* form -> WhatsApp (no backend needed) */
+function sendIt(ev){
+  ev.preventDefault();
+  const g = id => document.getElementById(id).value.trim();
+  const txt =
+`NEW CONSULTATION REQUEST — IntegoTech
+Name: ${g('n')}
+Role: ${g('r') || '-'}
+Organisation: ${g('s')}
+Phone: ${g('p')}
+Email: ${g('e') || '-'}
+Location: ${g('loc') || '-'}
+Interested in: ${document.getElementById('pl').value}
+Situation:
+${g('m') || '-'}`;
+  document.getElementById('ok').style.display = 'block';
+  /* EDIT: CONTACT — change the number below to receive enquiries */
+  window.open('https://wa.me/250785654811?text=' + encodeURIComponent(txt), '_blank');
+  document.getElementById('form').reset();
+  return false;
+}
+</script>
+
+</body>
+</html>
